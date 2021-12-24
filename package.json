@@ -1,0 +1,31 @@
+{
+  "name": "api-rest-projetos",
+  "version": "1.0.0",
+  "description": "API REST que realiza a criação, listagem, atualização e deleta registros de projetos",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon api/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adson-SO/api-rest-registro-de-projetos.git"
+  },
+  "keywords": [
+    "api",
+    "rest"
+  ],
+  "author": "Adson Sousa de Oliveira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adson-SO/api-rest-registro-de-projetos/issues"
+  },
+  "homepage": "https://github.com/adson-SO/api-rest-registro-de-projetos#readme",
+  "dependencies": {
+    "config": "^3.3.6",
+    "express": "^4.17.2",
+    "mysql2": "^2.3.3",
+    "nodemon": "^2.0.15",
+    "sequelize": "^7.0.0-alpha.2"
+  }
+}
