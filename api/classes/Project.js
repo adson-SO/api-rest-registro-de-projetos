@@ -1,10 +1,11 @@
 const ProjectTable = require('../models/Project/ProjectTable');
 
 class Project {
-    constructor({ id, title, description, createdAt, updatedAt }) {
+    constructor({ id, title, description, task, createdAt, updatedAt }) {
         this.id = id;
         this.title = title;
         this.description = description;
+        this.task = task;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
@@ -12,7 +13,8 @@ class Project {
     async criar() {
         const dados = await ProjectTable.adiciona({
             title: this.title,
-            description: this.description
+            description: this.description,
+            task: this.task
         });
 
         this.id = dados.id;
@@ -24,6 +26,7 @@ class Project {
         const project = await ProjectTable.buscarPorId(this.id);
         this.title = project.title;
         this.description = project.description;
+        this.task = project.task;
         this.createdAt = project.createdAt;
         this.updatedAt = project.updatedAt;
     }
@@ -32,6 +35,7 @@ class Project {
         const dados = {
             title: this.title,
             description: this.description,
+            tasks: this.task,
             createdAt: this.createdAt,
             updatedAt: this.updatedAt
         };
@@ -39,8 +43,8 @@ class Project {
         await ProjectTable.atualizar(this.id, dados);
     }
 
-    async deletar() {
-        await ProjectTable.apagar(this.id);
+    deletar() {
+        return ProjectTable.apagar(this.id);
     }
 }
 
