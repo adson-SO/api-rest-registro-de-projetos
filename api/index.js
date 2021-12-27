@@ -1,6 +1,7 @@
 const express = require('express');
 const config = require('config');
-const router = require('./routes');
+const router = require('./routes/project');
+const createTable = require('./database/createTable');
 
 const app = express();
 
