@@ -1,5 +1,5 @@
-const NotFound = require('../../errors/NotFound');
 const Model = require('./ProjectTableModel'); 
+const NotFound = require('../../errors/NotFound');
 
 module.exports = {
     listar() {

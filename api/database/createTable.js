@@ -1,6 +1,6 @@
 const modelos = [
     require('../models/Project/ProjectTableModel'),
-    require('../models/Project/Tasks/TasksTableModel')
+    require('../models/Project/Task/TaskTableModel')
 ];
 
 async function createTable() {

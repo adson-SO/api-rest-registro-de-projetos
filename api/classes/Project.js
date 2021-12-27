@@ -36,7 +36,7 @@ class Project {
         const campos = ['title', 'description'];
         const dadosParaAtualizar = {};
 
-        campos.forEach(campo => {
+        campos.forEach((campo) => {
             const valor = this[campo];
 
             if(typeof valor === 'string' && valor.length > 0) {
@@ -48,7 +48,7 @@ class Project {
             }
 
             ProjectTable.atualizar(this.id, dadosParaAtualizar);
-        })
+        });
     }
 
     deletar() {

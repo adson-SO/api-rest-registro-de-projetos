@@ -58,4 +58,20 @@ router.delete('/project/:idProject', async (req, res, next) => {
     }
 });
 
+const taskRouter = require('./task');
+
+const verifyProject = async (req, res, next) => {
+    try {
+        const idProject = req.params.idProject;
+        const project = new Project({ id: idProject });
+        await project.buscarPorId();
+        req.project = project;
+        next();
+    } catch(erro) {
+        next(erro);
+    }
+} 
+
+router.use('/project/:idProject/task', verifyProject, taskRouter);
+
 module.exports = router;
