@@ -1,9 +1,15 @@
 const Model = require('./ProjectTableModel'); 
 const NotFound = require('../../errors/NotFound');
+const TaskModel = require('./Task/TaskTableModel');
 
 module.exports = {
     listar() {
-        return Model.findAll();
+        return Model.findAll({
+            include: [{
+                model: TaskModel,
+                required: true
+            }]
+        });
     },
 
     adiciona(dados) {

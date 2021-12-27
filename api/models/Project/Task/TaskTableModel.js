@@ -13,14 +13,6 @@ const columns = {
     completed: {
         type: Sequelize.BOOLEAN,
         allowNull: false
-    },
-    project: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {
-            model: require('../ProjectTableModel'),
-            key: 'id'
-        }
     }
 }
 

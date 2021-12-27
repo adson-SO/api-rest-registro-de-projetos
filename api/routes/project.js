@@ -3,8 +3,11 @@ const ProjectTable = require('../models/Project/ProjectTable');
 const Project = require('../classes/Project');
 
 router.get('/project', async (req, res) => {
-    const resultados = await ProjectTable.listar();
-    res.status(200).send(JSON.stringify(resultados));
+    const resultados = await ProjectTable.listar()
+    .then(resultado => {res.status(200).send(
+        JSON.stringify(resultado))
+    });
+    
 });
 
 router.post('/project', async (req, res, next) => {
