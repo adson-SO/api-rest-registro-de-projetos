@@ -13,6 +13,32 @@ router.post('/project', async (req, res) => {
     await project.criar();
 
     res.status(201).send(project);
-})
+});
+
+router.get('/project/:id', async (req, res) => {
+    const idProject = req.params.id;
+    const project = new Project({ id: idProject });
+    await project.buscarPorId();
+
+    res.status(200).send(project);
+});
+
+router.put('/project/:id', async (req, res) => {
+    const idProject = req.params.id;
+    const dadosRecebidos = req.body;
+    const dados = Object.assign({}, { id: idProject }, dadosRecebidos);
+    const project = new Project(dados);
+    await project.atualizar();
+
+    res.status(200).end();
+});
+
+router.delete('/project/:id', async (req, res) => {
+    const idProject = req.params.id;
+    const project = new Project({ id: idProject });
+    await project.deletar();
+
+    res.status(204).end();
+});
 
 module.exports = router;
