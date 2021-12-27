@@ -9,10 +9,6 @@ const columns = {
     description: {
         type: Sequelize.TEXT,
         allowNull: false
-    },
-    tasks: {
-        type: Sequelize.STRING,
-        allowNull: false
     }
 }
 

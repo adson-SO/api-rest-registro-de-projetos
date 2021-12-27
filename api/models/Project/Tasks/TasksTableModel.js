@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const connection = require('../../database/connection');
+const connection = require('../../../database/connection');
 
 const columns = {
     title: {
@@ -18,7 +18,7 @@ const columns = {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-            model: require('./ProjectTableModel'),
+            model: require('../ProjectTableModel'),
             key: 'id'
         }
     }

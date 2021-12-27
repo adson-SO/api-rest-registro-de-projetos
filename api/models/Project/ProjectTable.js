@@ -1,3 +1,4 @@
+const NotFound = require('../../errors/NotFound');
 const Model = require('./ProjectTableModel'); 
 
 module.exports = {
@@ -9,12 +10,18 @@ module.exports = {
         return Model.create(dados);
     },
 
-    buscarPorId(id) {
-        return Model.findOne({
+    async buscarPorId(id) {
+        const encontrado = await Model.findOne({
             where: {
                 id: id
             }
         });
+
+        if(!encontrado) {
+            throw new NotFound();
+        }
+
+        return encontrado;
     },
 
     atualizar(id, dados) {
