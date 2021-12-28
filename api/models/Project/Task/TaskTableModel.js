@@ -13,13 +13,22 @@ const columns = {
     completed: {
         type: Sequelize.BOOLEAN,
         allowNull: false
+    },
+    projectId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+            model: require('../ProjectTableModel'),
+            key: 'id'
+        }
     }
 }
 
 const options = {
     freezeTableName: true,
     tableName: 'tasks',
-    timeStamps: true
+    timeStamps: true,
+    allowNull: false
 }
 
 module.exports = connection.define('tasks', columns, options);

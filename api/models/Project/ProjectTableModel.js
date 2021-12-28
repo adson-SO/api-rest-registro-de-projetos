@@ -1,6 +1,5 @@
 const Sequelize = require('sequelize');
 const connection = require('../../database/connection');
-const TaskTableModel = require('./Task/TaskTableModel');
 
 const columns = {
     title: {
@@ -19,8 +18,6 @@ const options = {
     timeStamps: true
 }
 
-const Connection = connection.define('projects', columns, options);
-Connection.hasMany(TaskTableModel);
-TaskTableModel.belongsTo(Connection);
+const Project = connection.define('projects', columns, options);
 
-module.exports = Connection;
+module.exports = Project;

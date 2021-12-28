@@ -1,11 +1,11 @@
 {
     "mysql": {
-        "database": "api_rest_projetos",
-        "user": "root",
-        "password": "123456",
-        "host": "127.0.0.1"
+        "database": ,
+        "user": ,
+        "password": ,
+        "host": 
     },
     "api": {
-        "port": 3000
+        "port": 
     }
 }

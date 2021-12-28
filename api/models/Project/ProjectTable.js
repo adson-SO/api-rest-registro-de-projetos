@@ -1,15 +1,10 @@
-const Model = require('./ProjectTableModel'); 
+const Model = require('./ProjectTableModel');
 const NotFound = require('../../errors/NotFound');
 const TaskModel = require('./Task/TaskTableModel');
 
 module.exports = {
     listar() {
-        return Model.findAll({
-            include: [{
-                model: TaskModel,
-                required: true
-            }]
-        });
+        return Model.findAll();
     },
 
     adiciona(dados) {
@@ -18,12 +13,12 @@ module.exports = {
 
     async buscarPorId(id) {
         const encontrado = await Model.findOne({
-            where: {
-                id: id
-            }
-        });
+                where: {
+                    id: id
+                }
+            });
 
-        if(!encontrado) {
+        if (!encontrado) {
             throw new NotFound();
         }
 
@@ -31,7 +26,7 @@ module.exports = {
     },
 
     atualizar(id, dados) {
-        return Model.update(dados, 
+        return Model.update(dados,
             {
                 where: {
                     id: id

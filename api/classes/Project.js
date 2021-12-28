@@ -1,6 +1,7 @@
 const DataNotProvided = require('../errors/DataNotProvided');
 const InvalidField = require('../errors/InvalidField');
 const ProjectTable = require('../models/Project/ProjectTable');
+const Task = require('./Task');
 
 class Project {
     constructor({ id, title, description, createdAt, updatedAt }) {
@@ -43,12 +44,13 @@ class Project {
                 dadosParaAtualizar[campo] = valor;
             }
 
-            if(Object.keys(dadosParaAtualizar).length === 0) {
-                throw new DataNotProvided();
-            }
-
-            ProjectTable.atualizar(this.id, dadosParaAtualizar);
         });
+
+        if(Object.keys(dadosParaAtualizar).length === 0) {
+            throw new DataNotProvided();
+        }
+
+        ProjectTable.atualizar(this.id, dadosParaAtualizar);
     }
 
     deletar() {
